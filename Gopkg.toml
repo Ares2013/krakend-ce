@@ -8,15 +8,27 @@
   revision = "140c935a5d0d15e2cdc24b1f58668f410497fc3c"
 
 [[override]]
-  name = "github.com/coreos/etcd"
-  revision = "7e79c257cab156a511315b5e3459b4f88ecfe622"
+  version = "=1.1.1"
+  name = "github.com/ugorji/go"
 
 [[override]]
-  version = "0.7.0"
+  name = "go.opencensus.io"
+  version = "0.21.0"
+
+[[override]]
+  name = "contrib.go.opencensus.io/exporter/ocagent"
+  version = "v0.4.2"
+
+[[override]]
+  name = "github.com/coreos/etcd"
+  version = "3.3.12"
+
+[[override]]
+  branch = "master"
   name = "github.com/devopsfaith/krakend"
 
 [[override]]
-  version = "0.7.0"
+  version = "0.8.0"
   name = "github.com/devopsfaith/krakend-metrics"
 
 [[constraint]]
@@ -26,6 +38,10 @@
 [[constraint]]
   name = "github.com/gin-gonic/gin"
   version = "1.2.0"
+
+[[constraint]]
+  version = "0.9.0"
+  name = "github.com/devopsfaith/krakend-cel"
 
 [[constraint]]
   branch = "master"
@@ -52,8 +68,12 @@
   name = "github.com/devopsfaith/krakend-circuitbreaker"
 
 [[constraint]]
-  branch = "master"
+  version = "0.9.0"
   name = "github.com/devopsfaith/krakend-cobra"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-pubsub"
 
 [[constraint]]
   branch = "master"
@@ -72,19 +92,23 @@
   name = "github.com/devopsfaith/krakend-httpcache"
 
 [[constraint]]
-  version = "0.7.0"
-  name = "github.com/devopsfaith/krakend-martian"
-
-[[constraint]]
-  version = "0.5.0"
-  name = "github.com/devopsfaith/krakend-metrics"
-
-[[constraint]]
-  version = "0.7.0"
-  name = "github.com/devopsfaith/krakend-oauth2-clientcredentials"
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-amqp"
 
 [[constraint]]
   branch = "master"
+  name = "github.com/devopsfaith/krakend-martian"
+
+[[constraint]]
+  version = "0.8.0"
+  name = "github.com/devopsfaith/krakend-metrics"
+
+[[constraint]]
+  version = "0.8.0"
+  name = "github.com/devopsfaith/krakend-oauth2-clientcredentials"
+
+[[constraint]]
+  version = "0.9.0"
   name = "github.com/devopsfaith/krakend-ratelimit"
 
 [[constraint]]
@@ -92,11 +116,11 @@
   name = "github.com/devopsfaith/krakend-viper"
 
 [[constraint]]
-  version = "0.7.1"
+  branch = "master"
   name = "github.com/devopsfaith/krakend-opencensus"
 
 [[constraint]]
-  version = "0.6.0"
+  version = "0.8.1"
   name = "github.com/devopsfaith/krakend-jose"
 
 [[constraint]]
@@ -122,3 +146,7 @@
 [[constraint]]
   branch = "master"
   name = "github.com/devopsfaith/krakend-gelf"
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/devopsfaith/krakend-logstash"

@@ -7,18 +7,21 @@ import (
 	"os"
 
 	krakendbf "github.com/devopsfaith/bloomfilter/krakend"
+	cel "github.com/devopsfaith/krakend-cel"
 	"github.com/devopsfaith/krakend-cobra"
 	gelf "github.com/devopsfaith/krakend-gelf"
 	"github.com/devopsfaith/krakend-gologging"
-	jose "github.com/devopsfaith/krakend-jose"
+	"github.com/devopsfaith/krakend-jose"
+	logstash "github.com/devopsfaith/krakend-logstash"
 	metrics "github.com/devopsfaith/krakend-metrics/gin"
-	opencensus "github.com/devopsfaith/krakend-opencensus"
+	"github.com/devopsfaith/krakend-opencensus"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/influxdb"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/jaeger"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/prometheus"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/stackdriver"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/xray"
 	_ "github.com/devopsfaith/krakend-opencensus/exporter/zipkin"
+	pubsub "github.com/devopsfaith/krakend-pubsub"
 	"github.com/devopsfaith/krakend-usage/client"
 	"github.com/devopsfaith/krakend/config"
 	"github.com/devopsfaith/krakend/logging"
@@ -34,16 +37,29 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 		var writers []io.Writer
 		gelfWriter, gelfErr := gelf.NewWriter(cfg.ExtraConfig)
 		if gelfErr == nil {
-			writers = append(writers, gelfWriter)
+			writers = append(writers, gelfWriterWrapper{gelfWriter})
+			gologging.SetFormatterSelector(func(w io.Writer) string {
+				switch w.(type) {
+				case gelfWriterWrapper:
+					return "%{message}"
+				default:
+					return gologging.DefaultPattern
+				}
+			})
 		}
-		logger, gologgingErr := gologging.NewLogger(cfg.ExtraConfig, writers...)
+		logger, gologgingErr := logstash.NewLogger(cfg.ExtraConfig)
+
 		if gologgingErr != nil {
-			var err error
-			logger, err = logging.NewLogger("DEBUG", os.Stdout, "")
-			if err != nil {
-				return
+			logger, gologgingErr = gologging.NewLogger(cfg.ExtraConfig, writers...)
+
+			if gologgingErr != nil {
+				var err error
+				logger, err = logging.NewLogger("DEBUG", os.Stdout, "")
+				if err != nil {
+					return
+				}
+				logger.Error("unable to create the gologging logger:", gologgingErr.Error())
 			}
-			logger.Error("unable to create the gologging logger:", gologgingErr.Error())
 		}
 		if gelfErr != nil {
 			logger.Error("unable to create the GELF writer:", gelfErr.Error())
@@ -62,7 +78,7 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning(err.Error())
 		}
 
-		if err := opencensus.Register(ctx, cfg); err != nil {
+		if err := opencensus.Register(ctx, cfg, append(opencensus.DefaultViews, pubsub.OpenCensusViews...)...); err != nil {
 			logger.Warning("opencensus:", err.Error())
 		}
 
@@ -71,13 +87,25 @@ func NewExecutor(ctx context.Context) cmd.Executor {
 			logger.Warning("bloomFilter:", err.Error())
 		}
 
+		tokenRejecterFactory := jose.ChainedRejecterFactory([]jose.RejecterFactory{
+			jose.RejecterFactoryFunc(func(_ logging.Logger, _ *config.EndpointConfig) jose.Rejecter {
+				return jose.RejecterFunc(rejecter.RejectToken)
+			}),
+			jose.RejecterFactoryFunc(func(l logging.Logger, cfg *config.EndpointConfig) jose.Rejecter {
+				if r := cel.NewRejecter(l, cfg); r != nil {
+					return r
+				}
+				return jose.FixedRejecter(false)
+			}),
+		})
+
 		// setup the krakend router
 		routerFactory := router.NewFactory(router.Config{
 			Engine:         NewEngine(cfg, logger),
-			ProxyFactory:   NewProxyFactory(logger, NewBackendFactory(logger, metricCollector), metricCollector),
+			ProxyFactory:   NewProxyFactory(logger, NewBackendFactoryWithContext(ctx, logger, metricCollector), metricCollector),
 			Middlewares:    []gin.HandlerFunc{},
 			Logger:         logger,
-			HandlerFactory: NewHandlerFactory(logger, metricCollector, jose.RejecterFunc(rejecter.RejectToken)),
+			HandlerFactory: NewHandlerFactory(logger, metricCollector, tokenRejecterFactory),
 			RunServer:      krakendrouter.RunServer,
 		})
 
@@ -113,4 +141,8 @@ func startReporter(ctx context.Context, logger logging.Logger, cfg config.Servic
 			logger.Warning("unable to create the usage report client:", err.Error())
 		}
 	}()
+}
+
+type gelfWriterWrapper struct {
+	io.Writer
 }

@@ -13,13 +13,15 @@ import (
 	"github.com/devopsfaith/krakend-cobra"
 	flexibleconfig "github.com/devopsfaith/krakend-flexibleconfig"
 	"github.com/devopsfaith/krakend-viper"
+	"github.com/devopsfaith/krakend/config"
 )
 
 const (
-	fcPartials = "FC_PARTIALS"
-	fcSettings = "FC_SETTINGS"
-	fcPath     = "FC_OUT"
-	fcEnable   = "FC_ENABLE"
+	fcPartials  = "FC_PARTIALS"
+	fcTemplates = "FC_TEMPLATES"
+	fcSettings  = "FC_SETTINGS"
+	fcPath      = "FC_OUT"
+	fcEnable    = "FC_ENABLE"
 )
 
 func main() {
@@ -39,13 +41,15 @@ func main() {
 
 	krakend.RegisterEncoders()
 
-	cfg := viper.New()
+	var cfg config.Parser
+	cfg = viper.New()
 	if os.Getenv(fcEnable) != "" {
 		cfg = flexibleconfig.NewTemplateParser(flexibleconfig.Config{
-			Parser:   cfg,
-			Partials: os.Getenv(fcPartials),
-			Settings: os.Getenv(fcSettings),
-			Path:     os.Getenv(fcPath),
+			Parser:    cfg,
+			Partials:  os.Getenv(fcPartials),
+			Settings:  os.Getenv(fcSettings),
+			Path:      os.Getenv(fcPath),
+			Templates: os.Getenv(fcTemplates),
 		})
 	}
 

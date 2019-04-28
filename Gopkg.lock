@@ -6,13 +6,50 @@
   name = "cloud.google.com/go"
   packages = [
     "compute/metadata",
+    "iam",
     "internal/version",
     "monitoring/apiv3",
+    "pubsub/apiv1",
     "trace/apiv2",
   ]
   pruneopts = ""
   revision = "1fd54cf41e6e0e178ffe3c52b0e2260281f603e3"
   version = "v0.32.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:31abfbccb4f0d76a929287692f96847fc6c2267a7f34982fd85fe85306a70460"
+  name = "contrib.go.opencensus.io/exporter/aws"
+  packages = ["."]
+  pruneopts = ""
+  revision = "2befc13012d0b3486eb8effda5735b6f0730e645"
+
+[[projects]]
+  branch = "master"
+  digest = "1:009d164a00dd72f62fab5c0d9957415492e37aaa122a9187d52dcd24c99a34b0"
+  name = "contrib.go.opencensus.io/exporter/jaeger"
+  packages = [
+    ".",
+    "internal/gen-go/jaeger",
+  ]
+  pruneopts = ""
+  revision = "5b8293c22f362562285c2acbc52f4a1870a47a33"
+
+[[projects]]
+  digest = "1:6158256042564abf0da300ea7cb016f79ddaf24fdda2cc06c9712b0c2e06dd2a"
+  name = "contrib.go.opencensus.io/exporter/ocagent"
+  packages = ["."]
+  pruneopts = ""
+  revision = "dcb33c7f3b7cfe67e8a2cea10207ede1b7c40764"
+  version = "v0.4.12"
+
+[[projects]]
+  branch = "master"
+  digest = "1:3f38f1beab30c822b0a7afe930d8fab12e8335ce9aa6e2880b7af1d7486dc9a6"
+  name = "contrib.go.opencensus.io/exporter/prometheus"
+  packages = ["."]
+  pruneopts = ""
+  revision = "f02a6e68f94d3841b92ab6f1ab38b4c3e45d2c9f"
 
 [[projects]]
   digest = "1:b6f2e97ae241056f5ab5af4c37e82b79339d64fe7c1c73ca26ce19b470661e3b"
@@ -27,12 +64,57 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:3a450eb41c56fd707976df2e141e9673a3fb28901e72859fcf9da4d2fcd3e6be"
-  name = "git.apache.org/thrift.git"
-  packages = ["lib/go/thrift"]
+  digest = "1:199d4c4f9a8743931a3fe26f1f59aa494707466853d8d6a3dc09745e78485714"
+  name = "contrib.go.opencensus.io/exporter/zipkin"
+  packages = ["."]
   pruneopts = ""
-  revision = "88591e32e710a0524327153c8b629d5b461e35e0"
-  source = "github.com/apache/thrift"
+  revision = "c96617f51dc6c558ca0869abd0c3d96d534a37de"
+
+[[projects]]
+  digest = "1:40c8c872ea3d3b7fc43e2e18c3fde8517f82fe93a1ce07cf89ab408442c2648a"
+  name = "github.com/Azure/azure-amqp-common-go"
+  packages = [
+    ".",
+    "auth",
+    "cbs",
+    "conn",
+    "internal",
+    "internal/tracing",
+    "log",
+    "rpc",
+    "sas",
+    "uuid",
+  ]
+  pruneopts = ""
+  revision = "b5ea4829bce0d96bc7b4d11bfc8ccd2afdf0ec4a"
+  version = "v1.1.4"
+
+[[projects]]
+  digest = "1:91c25374979c537980d34cdd5f7384e35402a9f0bc36944bb67b9d2f89f507e6"
+  name = "github.com/Azure/azure-service-bus-go"
+  packages = [
+    ".",
+    "atom",
+  ]
+  pruneopts = ""
+  revision = "551698499ac9fac20d8c50faad5749967e685926"
+  version = "v0.4.1"
+
+[[projects]]
+  digest = "1:270be554fed3c3e9d7d1ebb2b4c5f206858a43bba6d4e90e1ce4b27ae7c080f9"
+  name = "github.com/Azure/go-autorest"
+  packages = [
+    "autorest",
+    "autorest/adal",
+    "autorest/azure",
+    "autorest/date",
+    "autorest/to",
+    "logger",
+    "tracing",
+  ]
+  pruneopts = ""
+  revision = "36c85dfef6277593be33a29bbc7636a5eb4e4bad"
+  version = "v11.6.0"
 
 [[projects]]
   digest = "1:a32b3159d404ed1da2637d23461a5900cc506c75d2c1062ff26e76e02afd90d1"
@@ -51,15 +133,31 @@
   version = "v1.0.0"
 
 [[projects]]
-  branch = "master"
-  digest = "1:5e1722a0d2f5ec5f89e241a5baca9132bc3d4d9c7ec4c70823746bbf0b34b76f"
+  digest = "1:d006584293547a5a28116ac4e02e250a07911e59b3db7fb1b7ab93c25721cdcb"
+  name = "github.com/antlr/antlr4"
+  packages = ["runtime/Go/antlr"]
+  pruneopts = ""
+  revision = "be58ebffde8e29c154192c019608f0a5b8e6a064"
+  version = "4.7.2"
+
+[[projects]]
+  digest = "1:89696c38cec777120b8b1bb5e2d363d655cf2e1e7d8c851919aaa0fd576d9b86"
+  name = "github.com/apache/thrift"
+  packages = ["lib/go/thrift"]
+  pruneopts = ""
+  revision = "384647d290e2e4a55a14b1b7ef1b7e66293a2c33"
+  version = "v0.12.0"
+
+[[projects]]
+  digest = "1:9da35fd4c159d0ab4b409a3b0453467400b17f2a92609c52e872a3677a568741"
   name = "github.com/auth0-community/go-auth0"
   packages = ["."]
   pruneopts = ""
-  revision = "b28f0da91b89bb9e7fb93daa330ed4b567a82dab"
+  revision = "ddfdc88aaa5909a3d4e3ad0543a27f4a63a691e6"
+  version = "v1.0.0"
 
 [[projects]]
-  digest = "1:369d0aa7c0d4f891548051d1817cf250404343487e2bff6de0e07e6cf8cb9623"
+  digest = "1:1713df27130c2745660c1773b3101e63b0888d930089687be5b2f61b3f2fe8e9"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -71,6 +169,7 @@
     "aws/credentials",
     "aws/credentials/ec2rolecreds",
     "aws/credentials/endpointcreds",
+    "aws/credentials/processcreds",
     "aws/credentials/stscreds",
     "aws/csm",
     "aws/defaults",
@@ -92,13 +191,15 @@
     "private/protocol/rest",
     "private/protocol/restjson",
     "private/protocol/xml/xmlutil",
+    "service/sns",
+    "service/sqs",
     "service/sts",
     "service/xray",
     "service/xray/xrayiface",
   ]
   pruneopts = ""
-  revision = "3264db248fe8d241f6949ed35e33b11c0aec3c93"
-  version = "v1.15.68"
+  revision = "ca6d5f771b63df153f02fe5b117434d5ebafeeda"
+  version = "v1.19.15"
 
 [[projects]]
   branch = "master"
@@ -117,12 +218,19 @@
   revision = "e6bc29ff4de927cdd8143d58e119b6ba2735e8a4"
 
 [[projects]]
-  branch = "master"
-  digest = "1:31abfbccb4f0d76a929287692f96847fc6c2267a7f34982fd85fe85306a70460"
-  name = "github.com/census-ecosystem/opencensus-go-exporter-aws"
-  packages = ["."]
+  digest = "1:10139b9c841acd336ceff02e8a85e0c558dee738b2277bb24d61d9d3c90ef1f2"
+  name = "github.com/census-instrumentation/opencensus-proto"
+  packages = [
+    "gen-go/agent/common/v1",
+    "gen-go/agent/metrics/v1",
+    "gen-go/agent/trace/v1",
+    "gen-go/metrics/v1",
+    "gen-go/resource/v1",
+    "gen-go/trace/v1",
+  ]
   pruneopts = ""
-  revision = "2befc13012d0b3486eb8effda5735b6f0730e645"
+  revision = "a105b96453fe85139acc07b68de48f2cbdd71249"
+  version = "v0.2.0"
 
 [[projects]]
   digest = "1:c0b59d68e8a5d9b9ae36853adec5b122f1bf9087b27f574732bbd851fc9ca9f3"
@@ -133,7 +241,7 @@
   version = "v1.8"
 
 [[projects]]
-  digest = "1:0f98300e315a38eb5b71615acf600ccb82fa82dffe76304802dd6afb3325f5d5"
+  digest = "1:0bc9fe59e23786a6d5f5b65d2676904d29aafcc79fa9fca4472fe0d15ee15656"
   name = "github.com/coreos/etcd"
   packages = [
     "client",
@@ -143,7 +251,8 @@
     "version",
   ]
   pruneopts = ""
-  revision = "7e79c257cab156a511315b5e3459b4f88ecfe622"
+  revision = "d57e8b8d97adfc4a6c224fe116714bf1a1f3beb9"
+  version = "v3.3.12"
 
 [[projects]]
   digest = "1:3c3f68ebab415344aef64363d23471e953a4715645115604aaf57923ae904f5e"
@@ -169,7 +278,16 @@
   version = "0.7.0"
 
 [[projects]]
-  digest = "1:f73a287f2467d64de4a0c0af29eb482468109ef4214041da3246186a730c580b"
+  branch = "master"
+  digest = "1:eaf17b84fcf35436fcde8935f72589c6a3705d13532370687c8502315c1b643d"
+  name = "github.com/devopsfaith/flatmap"
+  packages = ["tree"]
+  pruneopts = ""
+  revision = "8d71d61e07ac04dcb1661ae30e22893a66439981"
+
+[[projects]]
+  branch = "master"
+  digest = "1:38827b18f24d6f122793675db5f58a11eaf1791f7eb7cef7d7c2601b9ca38bdb"
   name = "github.com/devopsfaith/krakend"
   packages = [
     "config",
@@ -188,35 +306,53 @@
     "transport/http/server",
   ]
   pruneopts = ""
-  revision = "f82f671d8f1dc151d22949a5a3902f487c76ac23"
-  version = "0.7.0"
+  revision = "2c63402f9b52125ad7ffb61550c1875f58311e8d"
 
 [[projects]]
   branch = "master"
-  digest = "1:46071bd23e3c5d9b47194b27e0ae79f71ad620524ed0cfeae2c43ce017baed4f"
+  digest = "1:1af37481e59dc90681ed6ca751067fe596a92a7b5fed7fcabd9d17a22d4f3d49"
+  name = "github.com/devopsfaith/krakend-amqp"
+  packages = ["."]
+  pruneopts = ""
+  revision = "5f14dc177694b928d133f79475692b4b14442651"
+
+[[projects]]
+  digest = "1:2adc20b97785d34a8ed824444f4968c3074025800c96420a66292d0180aefb72"
+  name = "github.com/devopsfaith/krakend-cel"
+  packages = [
+    ".",
+    "internal",
+  ]
+  pruneopts = ""
+  revision = "4ab152faf99c6769e435471c42bc12b74cd2e812"
+  version = "0.9.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:a9f1961392ca6b04466de6ddb061b760fbc6ed1557e27f55375d6accdc0a5d94"
   name = "github.com/devopsfaith/krakend-circuitbreaker"
   packages = [
     "gobreaker",
     "gobreaker/proxy",
   ]
   pruneopts = ""
-  revision = "57a815c709e31a77f3e2c49811f5780518ac56aa"
+  revision = "673caf8e355a808f10f27dc76fb6abf1a5079a41"
 
 [[projects]]
-  branch = "master"
-  digest = "1:94ddaa594e4395b22e67a220933e260663dff57e7fb55d88643cd36d16ae1d69"
+  digest = "1:5d525e158a2fa5f7058eb5f6b44beddb869641a353cf09bf799e39eb80672f88"
   name = "github.com/devopsfaith/krakend-cobra"
   packages = ["."]
   pruneopts = ""
-  revision = "38d113ba86e99af08dbf4b1e9e510f522fc5d56e"
+  revision = "3f056666a23e2a9707bc72a86a748392730ec6b6"
+  version = "0.9.0"
 
 [[projects]]
   branch = "master"
-  digest = "1:277d2dc17bb667ec0de7651938125bec5c4ebd1079e0de8143a733327547835e"
+  digest = "1:95590893db00360367156745b87b10079f4f60fb68d0ac362aa861ae9d72e111"
   name = "github.com/devopsfaith/krakend-consul"
   packages = ["."]
   pruneopts = ""
-  revision = "2da968420b5dc2560af3a137489a38230d8117e0"
+  revision = "7623a4da32a11026b8e6a6d8092049d57708eae6"
 
 [[projects]]
   digest = "1:fc61e61898c78455700e0bf3d6e86478073254488c3391f0716ad37a2144a5a6"
@@ -239,11 +375,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:5300adfe557c762cfd230b914970c3b76d05914cbd0a3cb6398aeb2143f7ba21"
+  digest = "1:151e720241456939dcede8eaed2b547ac89d0daa0830e5472830dd46ab456806"
   name = "github.com/devopsfaith/krakend-flexibleconfig"
   packages = ["."]
   pruneopts = ""
-  revision = "73b987ab20487385218e02964eede4c4fa26a204"
+  revision = "fc4ef2b4d5cfeab66963ee0a4211f8825809e6df"
 
 [[projects]]
   branch = "master"
@@ -255,11 +391,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:1636196ab0730361553c475106ad4f918bf0e048fa219eb0447319c22e0c442b"
+  digest = "1:aa2a9ec46d343c71aa1a139e10f8ef2c53493d117332e88a365b7ef362f63b3a"
   name = "github.com/devopsfaith/krakend-gologging"
   packages = ["."]
   pruneopts = ""
-  revision = "96e1a9d5f586cac9b6ddb5de999527d64630181c"
+  revision = "f3f256584ecceef35c1dd6204275ff8830090c59"
 
 [[projects]]
   branch = "master"
@@ -281,34 +417,45 @@
   version = "0.6.0"
 
 [[projects]]
-  digest = "1:eaf1998992009b37e16063a7e8088ace7e7fd68584121bbe22eeb061b5c02c22"
+  digest = "1:b9d21f1f616f5454d9124ebdfebf92dca7d882379039ef687265b72f4a713af1"
   name = "github.com/devopsfaith/krakend-jose"
-  packages = ["."]
+  packages = [
+    ".",
+    "gin",
+  ]
   pruneopts = ""
-  revision = "9c3722897e7f834067a0523bc076bdcec4348fe7"
-  version = "0.6.0"
+  revision = "34c0555a9893717c5609f96fef2f14843acffa66"
+  version = "0.8.1"
 
 [[projects]]
   branch = "master"
-  digest = "1:d97fd5fc1b4e2db5edfd5ccf202e085d7a75229c12ff0f21a60c6a71be61b2e6"
+  digest = "1:f415d5187117a470bef2174e1d31e0602a8bb7d77195a435254fa4168b6bd3a5"
   name = "github.com/devopsfaith/krakend-jsonschema"
   packages = ["."]
   pruneopts = ""
-  revision = "895abb7764a92f5ad265184b54f926889f74d7f8"
+  revision = "5705a5015d7ab77614b408b39024a97ed997badc"
 
 [[projects]]
-  digest = "1:7bfe9387115ea3322aa4081536b9bf41f9743d53e1be36dd877bbadc686ed19c"
+  branch = "master"
+  digest = "1:3851b9bba70c8d44a410fd95ba91fcf113598da56f10c60cf6c34765c9872d86"
+  name = "github.com/devopsfaith/krakend-logstash"
+  packages = ["."]
+  pruneopts = ""
+  revision = "17f4745d3502bb8f8efbc0a21d6b60fdb0dc08d5"
+
+[[projects]]
+  branch = "master"
+  digest = "1:963ac9014ff2973362fdff92adaaa49db32c8b6a439bc352f4c1afe011566148"
   name = "github.com/devopsfaith/krakend-martian"
   packages = [
     ".",
     "register",
   ]
   pruneopts = ""
-  revision = "12579ad047c6528547fcac36277c3d5e9b53681b"
-  version = "0.7.0"
+  revision = "29314a524a91921568334a6d9124a7d002cdd463"
 
 [[projects]]
-  digest = "1:13aac33a7d2c95e6e4d4d86e74b5f3f0edd2631bba773cf7189d6cdd0ebb5b7b"
+  digest = "1:f18105f7b6118cd3bb56706c70cd3d945880fd3f0782393e2c793e9d10846b78"
   name = "github.com/devopsfaith/krakend-metrics"
   packages = [
     ".",
@@ -316,19 +463,20 @@
     "mux",
   ]
   pruneopts = ""
-  revision = "eece56824df23878b87f5712e70ddf443c684ce3"
-  version = "0.7.0"
+  revision = "1e2c2a1f6a62e84102e01b531628b93aaf880b99"
+  version = "0.8.0"
 
 [[projects]]
-  digest = "1:fee57926d64b2279e4a10800afd750bd9a0e4293702796d147ff6992015274c6"
+  digest = "1:d4950306f0ab666ae20f6658852b72980f417a80cdaa2f003f9aa3fad6c99719"
   name = "github.com/devopsfaith/krakend-oauth2-clientcredentials"
   packages = ["."]
   pruneopts = ""
-  revision = "be70514aefbb5d0027ceeb2d1c4799913e9d33a3"
-  version = "0.7.0"
+  revision = "11a9f7170c44688f0ebd69482035f69c37023e9b"
+  version = "0.8.0"
 
 [[projects]]
-  digest = "1:710a02a4ee61b5c94ec9f2c91f7d8488999adc1113722b8eca8e0255f9ccb7fa"
+  branch = "master"
+  digest = "1:bc611927bb876315597aed6be11ccac00ac509af47e084e061c82e4443ee0fa2"
   name = "github.com/devopsfaith/krakend-opencensus"
   packages = [
     ".",
@@ -341,12 +489,18 @@
     "router/gin",
   ]
   pruneopts = ""
-  revision = "a4c64d6aff1aaef37c36638a6adb094109355ae0"
-  version = "0.7.1"
+  revision = "a584d6fd2cc1a8178477e72d5de6b765e6f0f013"
 
 [[projects]]
   branch = "master"
-  digest = "1:edda6a0f813d8b9f3406799435fc397288d5cf07fa4f3d8d136f5cf47f03c719"
+  digest = "1:369a41008ad5a457ecac2b2286e545658535ce6e6f36440409d960d7b3c36f55"
+  name = "github.com/devopsfaith/krakend-pubsub"
+  packages = ["."]
+  pruneopts = ""
+  revision = "2884ffb549596b0190390e1dedab6baa43be4662"
+
+[[projects]]
+  digest = "1:2c4af650abc25a23b66a671f81dbaae0b6f32bd0ec771807b758d3e373e7755b"
   name = "github.com/devopsfaith/krakend-ratelimit"
   packages = [
     ".",
@@ -356,7 +510,8 @@
     "juju/router/gin",
   ]
   pruneopts = ""
-  revision = "407bf6926e70a985ee6b21a7bbcc2260b5c3c41a"
+  revision = "d63774e96e822849beb444823db7e22e5289fab6"
+  version = "0.9.0"
 
 [[projects]]
   digest = "1:bd8e054d035e2e20c076b549dcec18deb1ed1051b8a2eebe719fb10610088482"
@@ -368,22 +523,22 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:aaa5ac483bf864d91545b0e79655a504bd24cf6f294a9a1a31c9e8e46cfa2a59"
+  digest = "1:98772bc7bd74a25894b96167122ac52c433e2c5ba83b6c2e6c98c20330ec514b"
   name = "github.com/devopsfaith/krakend-usage"
   packages = [
     ".",
     "client",
   ]
   pruneopts = ""
-  revision = "9ac996de433fb194bcdb7a55359960e2f2d2517a"
+  revision = "476779c0a36c241aaa50bd22a4e3bf54705b78b7"
 
 [[projects]]
   branch = "master"
-  digest = "1:a50f898ee62c6473005cdc2e00753debe069b94bb4bbf143447754fa90a01cd9"
+  digest = "1:02746d4f0a0c170d3e4ee13e39a670c791ac4ee4dcad35876945a2e0adcb72c0"
   name = "github.com/devopsfaith/krakend-viper"
   packages = ["."]
   pruneopts = ""
-  revision = "3abc4134a773578643b46aa11431f72cc6d41e8a"
+  revision = "1cbb76813774283ea57dd5ce8371fa5ebe5dbc91"
 
 [[projects]]
   digest = "1:01f84c46e656f5cd11bebcd357b40af62a42e000125d3a70121182a022f867d0"
@@ -392,6 +547,14 @@
   pruneopts = ""
   revision = "5ce94062a4cccce87e791e86272c9d95512529d4"
   version = "0.5.0"
+
+[[projects]]
+  digest = "1:6098222470fe0172157ce9bbef5d2200df4edde17ee649c5d6e48330e4afa4c6"
+  name = "github.com/dgrijalva/jwt-go"
+  packages = ["."]
+  pruneopts = ""
+  revision = "06ea1031745cb8b3dab3f6a236daf2b0aa468b7e"
+  version = "v3.2.0"
 
 [[projects]]
   digest = "1:9f1e571696860f2b4f8a241b43ce91c6085e7aaed849ccca53f590a4dc7b95bd"
@@ -431,11 +594,16 @@
   version = "v1.2.0"
 
 [[projects]]
-  digest = "1:3dd078fda7500c341bc26cfbc6c6a34614f295a2457149fc1045cab767cbcf18"
+  digest = "1:529d738b7976c3848cae5cf3a8036440166835e389c1f617af701eeb12a0518d"
   name = "github.com/golang/protobuf"
   packages = [
+    "descriptor",
+    "jsonpb",
     "proto",
     "protoc-gen-go/descriptor",
+    "protoc-gen-go/generator",
+    "protoc-gen-go/generator/internal/remap",
+    "protoc-gen-go/plugin",
     "ptypes",
     "ptypes/any",
     "ptypes/duration",
@@ -445,8 +613,33 @@
     "ptypes/wrappers",
   ]
   pruneopts = ""
-  revision = "aa810b61a9c79d51363740d207bb46cf8e620ed5"
-  version = "v1.2.0"
+  revision = "b5d812f8a3706043e23a9cd5babf2e5423744d30"
+  version = "v1.3.1"
+
+[[projects]]
+  digest = "1:7e37047a3d592e947b32e27270549e5924d8946ab65558d611f226fb5b79b60e"
+  name = "github.com/google/cel-go"
+  packages = [
+    "cel",
+    "checker",
+    "checker/decls",
+    "common",
+    "common/debug",
+    "common/operators",
+    "common/overloads",
+    "common/packages",
+    "common/types",
+    "common/types/pb",
+    "common/types/ref",
+    "common/types/traits",
+    "interpreter",
+    "interpreter/functions",
+    "parser",
+    "parser/gen",
+  ]
+  pruneopts = ""
+  revision = "2c29ff3f5d3d7856e562e821214cc9c77657b853"
+  version = "v0.2.0"
 
 [[projects]]
   digest = "1:59c8099a5a8f449331e7bf2d17086bbd4f320f1f8f6a1a75a5d4d145bd6ad865"
@@ -454,17 +647,32 @@
   packages = [
     ".",
     "body",
+    "cookie",
     "fifo",
     "filter",
     "header",
     "log",
+    "martianurl",
     "mitm",
     "parse",
+    "port",
+    "priority",
     "proxyutil",
+    "stash",
+    "static",
+    "status",
     "verify",
   ]
   pruneopts = ""
   revision = "140c935a5d0d15e2cdc24b1f58668f410497fc3c"
+
+[[projects]]
+  digest = "1:470c67a48971fbf9b0760f59570b57baa2e6c7b23c35d6b4b274aa343b4e1446"
+  name = "github.com/google/wire"
+  packages = ["."]
+  pruneopts = ""
+  revision = "9a7ae3ba6b734d831e88c75966fd5e9c0abdeace"
+  version = "v0.2.1"
 
 [[projects]]
   digest = "1:e097a364f4e8d8d91b9b9eeafb992d3796a41fde3eb548c1a87eb9d9f60725cf"
@@ -481,6 +689,18 @@
   packages = ["."]
   pruneopts = ""
   revision = "9cad4c3443a7200dd6400aef47183728de563a38"
+
+[[projects]]
+  digest = "1:6e87163a02e172de60dc68c263b375079f6b08fe81d32611fe12ffadd673b1b8"
+  name = "github.com/grpc-ecosystem/grpc-gateway"
+  packages = [
+    "internal",
+    "runtime",
+    "utilities",
+  ]
+  pruneopts = ""
+  revision = "20f268a412e5b342ebfb1a0eef7c3b7bd6c260ea"
+  version = "v1.8.5"
 
 [[projects]]
   digest = "1:e3c99a7aee7b685da266817f005f308367aa6fcec9703e7eb317140f1f8f0481"
@@ -507,6 +727,14 @@
   revision = "6bb64b370b90e7ef1fa532be9e591a81c3493e00"
 
 [[projects]]
+  digest = "1:85f8f8d390a03287a563e215ea6bd0610c858042731a8b42062435a0dcbc485f"
+  name = "github.com/hashicorp/golang-lru"
+  packages = ["simplelru"]
+  pruneopts = ""
+  revision = "7087cb70de9f7a8bc0a10c375cb0d2280a8edf9c"
+  version = "v0.5.1"
+
+[[projects]]
   branch = "master"
   digest = "1:147d671753effde6d3bcd58fc74c1d67d740196c84c280c762a5417319499972"
   name = "github.com/hashicorp/hcl"
@@ -514,6 +742,7 @@
     ".",
     "hcl/ast",
     "hcl/parser",
+    "hcl/printer",
     "hcl/scanner",
     "hcl/strconv",
     "hcl/token",
@@ -541,7 +770,7 @@
   version = "v1.0"
 
 [[projects]]
-  digest = "1:3c354b3d0c8adb569785c2644c2471928aa7fcb60dd36cd4750ccc99d9dcf170"
+  digest = "1:82736b0fd80f657b95306b226728734e8f7d35505a14acdcd09a7c433dcaa9dd"
   name = "github.com/influxdata/influxdb"
   packages = [
     "client/v2",
@@ -549,15 +778,25 @@
     "pkg/escape",
   ]
   pruneopts = ""
-  revision = "a2ba6e7654fb078f8a3f5add1f8d935df38161bd"
-  version = "v1.6.4"
+  revision = "ef77e72f435b71b1ad6da7d6a6a4c4a262439379"
+  version = "v1.7.4"
 
 [[projects]]
-  digest = "1:6f49eae0c1e5dab1dafafee34b207aeb7a42303105960944828c2079b92fc88e"
+  digest = "1:ed432f42ea25cda1a97323039aa1ec3f35c66fa49cf8487db61e515f5b0a89ad"
+  name = "github.com/influxdata/platform"
+  packages = [
+    "models",
+    "pkg/escape",
+  ]
+  pruneopts = ""
+  revision = "0f79e4ea3248354c789cba274542e0a8e55971db"
+
+[[projects]]
+  digest = "1:13fe471d0ed891e8544eddfeeb0471fd3c9f2015609a1c000aefdedf52a19d40"
   name = "github.com/jmespath/go-jmespath"
   packages = ["."]
   pruneopts = ""
-  revision = "0b12d6b5"
+  revision = "c2b33e84"
 
 [[projects]]
   digest = "1:b79fc583e4dc7055ed86742e22164ac41bf8c0940722dbcb600f1a3ace1a8cb5"
@@ -568,12 +807,12 @@
   version = "v1.1.5"
 
 [[projects]]
-  branch = "master"
   digest = "1:d26c006cbf54ca5c040463d5678013169e2bd91fb62c2f960ae283a1723d4278"
   name = "github.com/juju/ratelimit"
   packages = ["."]
   pruneopts = ""
   revision = "59fac5042749a5afb9af70e813da1dd5474f0167"
+  version = "1.0.1"
 
 [[projects]]
   branch = "master"
@@ -585,7 +824,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:a8721703e5eaba4d7624506e890965e95529362ac0863cc5611c8a10b7b05aff"
+  digest = "1:ecce86b251fe077a44f275c0c43b0330e31b299c56e6e759094403cd4ca3c430"
   name = "github.com/letgoapp/krakend-influx"
   packages = [
     ".",
@@ -594,7 +833,7 @@
     "histogram",
   ]
   pruneopts = ""
-  revision = "8e228870e14c8332055b609a4808f1f738c0c8c7"
+  revision = "d2fc9466bb3abc5d9ce4caf80e350369c01d347c"
 
 [[projects]]
   digest = "1:1ce378ab2352c756c6d7a0172c22ecbd387659d32712a4ce3bc474273309a5dc"
@@ -675,11 +914,51 @@
   version = "1.0.1"
 
 [[projects]]
+  digest = "1:2b5ed2cf6e8623bddd5653cffb8c6e462c2390b70186eb01546539aa177bb194"
+  name = "github.com/nats-io/go-nats"
+  packages = [
+    ".",
+    "encoders/builtin",
+    "util",
+  ]
+  pruneopts = ""
+  revision = "70fe06cee50d4b6f98248d9675fb55f2a3aa7228"
+  version = "v1.7.2"
+
+[[projects]]
+  digest = "1:0006112541eed60bdfa279c8965c038865f05a677d980305dae7a0eec5bd133c"
+  name = "github.com/nats-io/nkeys"
+  packages = ["."]
+  pruneopts = ""
+  revision = "1546a3320a8f195a5b5c84aef8309377c2e411d5"
+  version = "v0.0.2"
+
+[[projects]]
+  digest = "1:9abd194bb617fe4df66607ca59812ca91caeb2053c8c9869d3507939bb63cc0b"
+  name = "github.com/nats-io/nuid"
+  packages = ["."]
+  pruneopts = ""
+  revision = "4b96681fa6d28dd0ab5fe79bac63b3a493d9ee94"
+  version = "v1.0.1"
+
+[[projects]]
   digest = "1:05299a5fae20b7f12c0f0ccc0281fe5091a2b671f8380084352fda354651e101"
   name = "github.com/op/go-logging"
   packages = ["."]
   pruneopts = ""
   revision = "970db520ece77730c7e4724c61121037378659d9"
+
+[[projects]]
+  digest = "1:1fc4897d3cc482d070651563c16a51489296cd9150e6d53fb7ff4d59a24334bc"
+  name = "github.com/opentracing/opentracing-go"
+  packages = [
+    ".",
+    "ext",
+    "log",
+  ]
+  pruneopts = ""
+  revision = "659c90643e714681897ec2521c60567dd21da733"
+  version = "v1.1.0"
 
 [[projects]]
   digest = "1:aec3ca6ffc2c0dd856e858b2f3d3bcc291123fff7ed1456e0a1a6dac8a986b75"
@@ -700,6 +979,14 @@
   pruneopts = ""
   revision = "16398bac157da96aa88f98a2df640c7f32af1da2"
   version = "v1.0.1"
+
+[[projects]]
+  digest = "1:1d7e1867c49a6dd9856598ef7c3123604ea3daabf5b83f303ff457bcbc410b1d"
+  name = "github.com/pkg/errors"
+  packages = ["."]
+  pruneopts = ""
+  revision = "ba968bfe8b2f7e042a574c888954fccecfa385b4"
+  version = "v0.8.1"
 
 [[projects]]
   digest = "1:4142d94383572e74b42352273652c62afec5b23f325222ed09198f46009022d1"
@@ -808,12 +1095,23 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:59354ad53dfe6ed1b941844cb029cd37c0377598eec3a0d49c03aee2375ef9c4"
+  digest = "1:90fe60ab6f827e308b0c8cc1e11dce8ff1e96a927c8b171271a3cb04dd517606"
   name = "github.com/spf13/viper"
   packages = ["."]
   pruneopts = ""
-  revision = "25b30aa063fc18e48662b86996252eabdcf2f0c7"
-  version = "v1.0.0"
+  revision = "9e56dacc08fbbf8c9ee2dbc717553c758ce42bc9"
+  version = "v1.3.2"
+
+[[projects]]
+  branch = "master"
+  digest = "1:7cfabfbca44cd91fef8dd89119c5dfdcdc0466c26d5b7c5ad35e965e01fca1c4"
+  name = "github.com/streadway/amqp"
+  packages = [
+    ".",
+    "internal/proto",
+  ]
+  pruneopts = ""
+  revision = "16ed540749f64417a42006ad795b01c0f5d4677a"
 
 [[projects]]
   branch = "master"
@@ -883,12 +1181,12 @@
   revision = "3918361d3e9781714bbdb3ad9c11de4fa5c73d34"
 
 [[projects]]
-  branch = "master"
-  digest = "1:e500a14b76b36e44dfeb4b8c89ebca466d148712be5c4457e72080a83d915e32"
+  digest = "1:2e7f653483e51243b6cd6de60ce39bde0d6927d10a3c24295ab0f82cb1efeae2"
   name = "github.com/ugorji/go"
   packages = ["codec"]
   pruneopts = ""
-  revision = "f0aa215a7d653544d39d0e27dfa10fa4b183f397"
+  revision = "b4c50a2b199d93b13dc15e78929cfb23bfdf21ab"
+  version = "v1.1.1"
 
 [[projects]]
   branch = "master"
@@ -923,21 +1221,21 @@
   version = "v1.0"
 
 [[projects]]
-  digest = "1:ad67dfd3799a2c58f6c65871dd141d8b53f61f600aec48ce8d7fa16a4d5476f8"
+  digest = "1:a2710a93d435ef9481564c98deadf9de17d437b75e0c3d0c1cfbd7bfd8407040"
   name = "go.opencensus.io"
   packages = [
     ".",
-    "exemplar",
-    "exporter/jaeger",
-    "exporter/jaeger/internal/gen-go/jaeger",
-    "exporter/prometheus",
     "exporter/stackdriver/propagation",
-    "exporter/zipkin",
     "internal",
     "internal/tagencoding",
+    "metric/metricdata",
+    "metric/metricexport",
+    "metric/metricproducer",
     "plugin/ocgrpc",
     "plugin/ochttp",
     "plugin/ochttp/propagation/b3",
+    "plugin/ochttp/propagation/tracecontext",
+    "resource",
     "stats",
     "stats/internal",
     "stats/view",
@@ -948,8 +1246,34 @@
     "trace/tracestate",
   ]
   pruneopts = ""
-  revision = "b7bf3cdb64150a8c8c53b769fdeb2ba581bd4d4b"
-  version = "v0.18.0"
+  revision = "df6e2001952312404b06f5f6f03fcb4aec1648e5"
+  version = "v0.21.0"
+
+[[projects]]
+  digest = "1:0e0f178ef23bbb0cbf93109dd40cc9f7748981cb8410f846d67f1b36b82b1e61"
+  name = "gocloud.dev"
+  packages = [
+    "aws",
+    "gcerrors",
+    "gcp",
+    "internal/batcher",
+    "internal/escape",
+    "internal/gcerr",
+    "internal/oc",
+    "internal/openurl",
+    "internal/retry",
+    "internal/useragent",
+    "pubsub",
+    "pubsub/awssnssqs",
+    "pubsub/azuresb",
+    "pubsub/driver",
+    "pubsub/gcppubsub",
+    "pubsub/natspubsub",
+    "pubsub/rabbitpubsub",
+  ]
+  pruneopts = ""
+  revision = "08a6b729adef900ab041be191f49b76e758ebfa7"
+  version = "v0.12.0"
 
 [[projects]]
   branch = "master"
@@ -1001,7 +1325,10 @@
   branch = "master"
   digest = "1:b2ea75de0ccb2db2ac79356407f8a4cd8f798fe15d41b381c00abf3ae8e55ed1"
   name = "golang.org/x/sync"
-  packages = ["semaphore"]
+  packages = [
+    "errgroup",
+    "semaphore",
+  ]
   pruneopts = ""
   revision = "1d60e4601c6fd243af51cc01ddf169918a5407ca"
 
@@ -1047,9 +1374,21 @@
     "unicode/cldr",
     "unicode/norm",
     "unicode/rangetable",
+    "width",
   ]
   pruneopts = ""
   revision = "75cc3cad82b5f47d3fb229ddda8c5167da14f294"
+
+[[projects]]
+  branch = "master"
+  digest = "1:43f9bcad4bf71ed1d40e92f041d7ef9f2f29acaacaebc6ed5028550520827530"
+  name = "golang.org/x/xerrors"
+  packages = [
+    ".",
+    "internal",
+  ]
+  pruneopts = ""
+  revision = "1f06c39b43733b74392b1972507822714ced3242"
 
 [[projects]]
   branch = "master"
@@ -1096,11 +1435,15 @@
   packages = [
     "googleapis/api/annotations",
     "googleapis/api/distribution",
+    "googleapis/api/expr/v1alpha1",
+    "googleapis/api/httpbody",
     "googleapis/api/label",
     "googleapis/api/metric",
     "googleapis/api/monitoredres",
     "googleapis/devtools/cloudtrace/v2",
+    "googleapis/iam/v1",
     "googleapis/monitoring/v3",
+    "googleapis/pubsub/v1",
     "googleapis/rpc/status",
     "protobuf/field_mask",
   ]
@@ -1188,11 +1531,24 @@
   pruneopts = ""
   revision = "287cf08546ab5e7e37d55a84f7ed3fd1db036de5"
 
+[[projects]]
+  digest = "1:22677de4db7901eedefc577b84ea8c061c2f5531551322a092ad7e1adee4d31c"
+  name = "pack.ag/amqp"
+  packages = [
+    ".",
+    "internal/testconn",
+  ]
+  pruneopts = ""
+  revision = "a69a1d51f8e7b55567f8d190a8fab04503a97735"
+  version = "v0.11.0"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
     "github.com/devopsfaith/bloomfilter/krakend",
+    "github.com/devopsfaith/krakend-amqp",
+    "github.com/devopsfaith/krakend-cel",
     "github.com/devopsfaith/krakend-circuitbreaker/gobreaker/proxy",
     "github.com/devopsfaith/krakend-cobra",
     "github.com/devopsfaith/krakend-consul",
@@ -1204,7 +1560,9 @@
     "github.com/devopsfaith/krakend-httpcache",
     "github.com/devopsfaith/krakend-httpsecure/gin",
     "github.com/devopsfaith/krakend-jose",
+    "github.com/devopsfaith/krakend-jose/gin",
     "github.com/devopsfaith/krakend-jsonschema",
+    "github.com/devopsfaith/krakend-logstash",
     "github.com/devopsfaith/krakend-martian",
     "github.com/devopsfaith/krakend-metrics/gin",
     "github.com/devopsfaith/krakend-oauth2-clientcredentials",
@@ -1216,6 +1574,7 @@
     "github.com/devopsfaith/krakend-opencensus/exporter/xray",
     "github.com/devopsfaith/krakend-opencensus/exporter/zipkin",
     "github.com/devopsfaith/krakend-opencensus/router/gin",
+    "github.com/devopsfaith/krakend-pubsub",
     "github.com/devopsfaith/krakend-ratelimit/juju/proxy",
     "github.com/devopsfaith/krakend-ratelimit/juju/router/gin",
     "github.com/devopsfaith/krakend-rss",
